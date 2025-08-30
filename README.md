@@ -232,3 +232,11 @@ sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
 </details>
 
+
+# Added packages
+
+A list of packages and their use that differ from the kickstart.nvim _template_
+
+- MeanderingProgrammer/render-markdown.nvim
+- rebolt/kanagawa.nvim
+- startup-nvim/startup.nvim
