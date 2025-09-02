@@ -506,7 +506,7 @@ require('lazy').setup({
     'rebelot/kanagawa.nvim',
     opts = {},
     config = function()
-      vim.cmd 'colorscheme kanagawa-dragon'
+      vim.cmd 'colorscheme kanagawa'
     end,
   },
   {
