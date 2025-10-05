@@ -310,6 +310,16 @@ require('lazy').setup({
         update_root = true,
       },
     },
+    keys = {
+      {
+        '<C-t>',
+        function()
+          vim.cmd [[NvimTreeOpen]]
+        end,
+        mode = { 'n' },
+        desc = 'Focus on the nvim tree',
+      },
+    },
   },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -1068,6 +1078,5 @@ require('lazy').setup({
     },
   },
 })
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
