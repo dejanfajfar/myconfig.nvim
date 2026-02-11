@@ -36,4 +36,11 @@ vim.filetype.add {
     ['tsconfig.json'] = 'jsonc',
     ['jsconfig.json'] = 'jsonc',
   },
+  pattern = {
+    -- Helm templates
+    ['.*/templates/.*%.yaml'] = 'helm',
+    ['.*/templates/.*%.yml'] = 'helm',
+    ['.*/templates/.*%.tpl'] = 'helm',
+    ['helmfile.*%.yaml'] = 'helm',
+  },
 }

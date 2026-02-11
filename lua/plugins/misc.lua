@@ -58,4 +58,10 @@ return {
   {
     'fei6409/log-highlight.nvim',
   },
+
+  -- Helm support
+  {
+    'qvalentin/helm-ls.nvim',
+    ft = 'helm',
+  },
 }
