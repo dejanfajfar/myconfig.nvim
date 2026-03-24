@@ -28,7 +28,12 @@ return {
       {
         '<leader>e',
         function()
-          vim.cmd 'NvimTreeToggle'
+          local api = require 'nvim-tree.api'
+          if api.tree.is_visible() then
+            api.tree.focus()
+          else
+            api.tree.find_file { open = true, focus = true }
+          end
         end,
         mode = { 'n' },
         desc = 'Toggle file [E]xplorer',

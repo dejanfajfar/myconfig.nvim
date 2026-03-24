@@ -34,10 +34,7 @@ return {
     config = function()
       require('telescope').setup {
         defaults = {
-          file_ignore_patterns = { "^%.git[/\\]" },
-          find_command = vim.fn.has 'win32' == 0
-            and { 'fd', '--type', 'f', '--hidden', '--exclude', '.git' }
-            or nil,
+          file_ignore_patterns = { '^%.git[/\\]' },
           mappings = {
             i = {
               ['<C-s>'] = require('telescope.actions').select_vertical,
