@@ -14,7 +14,7 @@ return {
   -- Show pending keybinds
   {
     'folke/which-key.nvim',
-    event = 'VimEnter',
+    event = 'VeryLazy',
     opts = {
       delay = 0,
       icons = {
@@ -54,6 +54,8 @@ return {
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>d', group = '[D]ocument' },
+        { '<leader>w', group = '[W]orkspace' },
       },
     },
   },
@@ -61,7 +63,7 @@ return {
   -- Highlight todo, notes, etc in comments
   {
     'folke/todo-comments.nvim',
-    event = 'VimEnter',
+    event = { 'BufReadPost', 'BufNewFile' },
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = { signs = false },
   },

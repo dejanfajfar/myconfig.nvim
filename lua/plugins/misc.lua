@@ -5,28 +5,33 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     version = '*',
-    lazy = false,
+    cmd = { 'NvimTreeToggle', 'NvimTreeOpen', 'NvimTreeFindFileToggle' },
     dependencies = {
       'nvim-tree/nvim-web-devicons',
     },
     opts = {
+      on_attach = function(bufnr)
+        local api = require 'nvim-tree.api'
+        api.config.mappings.default_on_attach(bufnr)
+        vim.keymap.del('n', '<C-v>', { buffer = bufnr })
+        vim.keymap.set('n', '<C-s>', api.node.open.vertical, { buffer = bufnr, desc = 'Open in vertical split' })
+      end,
       view = {
         width = 30,
         side = 'left',
       },
       update_focused_file = {
         enable = true,
-        update_root = true,
       },
     },
     keys = {
       {
-        '<C-t>',
+        '<leader>e',
         function()
-          vim.cmd [[NvimTreeOpen]]
+          vim.cmd 'NvimTreeToggle'
         end,
         mode = { 'n' },
-        desc = 'Focus on the nvim tree',
+        desc = 'Toggle file [E]xplorer',
       },
     },
   },
@@ -34,7 +39,7 @@ return {
   -- Start screen
   {
     'startup-nvim/startup.nvim',
-    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-file-browser.nvim' },
+    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
     config = function()
       require('startup').setup()
     end,
@@ -46,7 +51,6 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
-    opts = {},
     config = function()
       require('render-markdown').setup {
         completions = { blink = { enabled = true } },
@@ -57,6 +61,7 @@ return {
   -- Log file highlighting
   {
     'fei6409/log-highlight.nvim',
+    ft = 'log',
   },
 
   -- Helm support

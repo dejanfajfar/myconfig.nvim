@@ -5,11 +5,6 @@ vim.filetype.add {
     -- Environment files
     env = 'sh',
 
-    -- Config files
-    eslintrc = 'json',
-    prettierrc = 'json',
-    babelrc = 'json',
-
     -- Web
     mdx = 'markdown',
     astro = 'astro',
@@ -35,6 +30,10 @@ vim.filetype.add {
     ['.envrc'] = 'sh',
     ['tsconfig.json'] = 'jsonc',
     ['jsconfig.json'] = 'jsonc',
+    -- Config dotfiles that have no extension
+    ['.eslintrc'] = 'json',
+    ['.prettierrc'] = 'json',
+    ['.babelrc'] = 'json',
   },
   pattern = {
     -- Helm templates

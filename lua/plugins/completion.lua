@@ -3,7 +3,7 @@
 return {
   {
     'saghen/blink.cmp',
-    event = 'VimEnter',
+    event = 'InsertEnter',
     version = '1.*',
     dependencies = {
       {
@@ -42,7 +42,7 @@ return {
       },
 
       snippets = { preset = 'luasnip' },
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
       signature = { enabled = true },
     },
   },

@@ -1,7 +1,7 @@
 -- Vim options configuration
 
 vim.o.number = true
-vim.o.spelllang = 'en'
+vim.o.relativenumber = true
 vim.o.mouse = 'a'
 vim.o.showmode = false
 
@@ -35,3 +35,20 @@ vim.o.inccommand = 'split'
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 vim.o.confirm = true
+
+-- Indentation defaults (guess-indent.nvim will override per buffer)
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
+
+-- Disable line wrapping
+vim.o.wrap = false
+
+-- Enable spell checking for prose filetypes only
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'markdown', 'gitcommit', 'text' },
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = 'en'
+  end,
+})
