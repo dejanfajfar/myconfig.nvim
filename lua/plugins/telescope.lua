@@ -35,6 +35,7 @@ return {
       require('telescope').setup {
         defaults = {
           file_ignore_patterns = { "^.git/" },
+          find_command = { 'fd', '--type', 'f', '--hidden', '--exclude', '.git' },
           mappings = {
             i = {
               ['<C-s>'] = require('telescope.actions').select_vertical,
