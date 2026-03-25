@@ -14,6 +14,10 @@ vim.filetype.add {
     tfvars = 'terraform',
     hcl = 'hcl',
 
+    -- PowerShell
+    psm1 = 'ps1',
+    psd1 = 'ps1',
+
     -- Data
     jsonc = 'jsonc',
 
