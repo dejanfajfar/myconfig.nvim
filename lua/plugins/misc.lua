@@ -1,4 +1,4 @@
--- Miscellaneous plugins (nvim-tree, startup, render-markdown, log-highlight)
+-- Miscellaneous plugins (nvim-tree, startup, log-highlight, flutter-tools)
 
 return {
   -- File tree
@@ -50,19 +50,6 @@ return {
     end,
   },
 
-  -- Markdown rendering
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    config = function()
-      require('render-markdown').setup {
-        completions = { blink = { enabled = true } },
-      }
-    end,
-  },
-
   -- Log file highlighting
   {
     'fei6409/log-highlight.nvim',
@@ -73,5 +60,16 @@ return {
   {
     'qvalentin/helm-ls.nvim',
     ft = 'helm',
+  },
+
+  -- Flutter support
+  {
+    'akinsho/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim',
+    },
+    config = true,
   },
 }
